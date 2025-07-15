@@ -27,6 +27,7 @@ git clone https://github.com/wkumagai/Agent-Team.git
 
 ⚠️ **注意**: 既存の `multiagent` と `president` セッションがある場合は自動的に削除されます。また，Claude Codeが起動したら、各エージェントはBashツールを使用してコマンドを実行します。直接コマンドを入力するのではなく、Claudeに指示を与えてBashツールでコマンドを実行させてください。
 
+Terminalウィンドウを開く．
 ```bash
 cd Agent-Team
 ```
@@ -43,7 +44,7 @@ tmux send-keys -t president 'claude --dangerously-skip-permissions' C-m
 
 ### 2. Window 2: Team Agents
 
-別のウィンドウを開く．
+別のTerminalウィンドウを開く．
 
 ```bash
 cd Agent-Team
