@@ -1,4 +1,4 @@
-# 🤖 Tmux Multi-Agent Communication Demo
+# Agent-Team
 
 Agent同士がやり取りするtmux環境のデモシステム
 
