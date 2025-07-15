@@ -20,7 +20,7 @@ tmux環境のPRESIDENT → BOSS → Workers の階層型指示システム
 ### 0. リポジトリのクローン
 
 ```bash
-git clone https://github.com/wkumagai/Agent-Team/tree/main.git
+git clone https://github.com/wkumagai/Agent-Team.git
 cd Agent-Team
 ```
 
