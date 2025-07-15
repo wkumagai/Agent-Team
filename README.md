@@ -1,10 +1,6 @@
 # Agent-Team
 
-Agent同士がやり取りするtmux環境のデモシステム
-
-## 🎯 デモ概要
-
-PRESIDENT → BOSS → Workers の階層型指示システムを体感できます
+tmux環境のPRESIDENT → BOSS → Workers の階層型指示システム
 
 ### 👥 エージェント構成
 
