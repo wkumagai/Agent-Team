@@ -21,43 +21,42 @@ PRESIDENT agent <-> BOSS agent <-> Worker agent 1,2,3  の階層型指示シス�
 
 ```bash
 git clone https://github.com/wkumagai/Agent-Team.git
-cd Agent-Team
 ```
 
-### 1. tmux環境構築
+### 1. Window 1: President Agent
 
-⚠️ **注意**: 既存の `multiagent` と `president` セッションがある場合は自動的に削除されます。
+⚠️ **注意**: 既存の `multiagent` と `president` セッションがある場合は自動的に削除されます。また，Claude Codeが起動したら、各エージェントはBashツールを使用してコマンドを実行します。直接コマンドを入力するのではなく、Claudeに指示を与えてBashツールでコマンドを実行させてください。
 
+```bash
+cd Agent-Team
+```
 ```bash
 ./setup.sh
 ```
-
-
-**手順1: President認証**
-
 ```bash
-# プレジデント確認
 tmux attach-session -t president
 ```
-
 ```bash
-# まずPRESIDENTで認証を実施
 tmux send-keys -t president 'claude --dangerously-skip-permissions' C-m
 ```
 認証プロンプトに従って許可を与えてください。
 
-**手順2: Multiagent Claude Code 一括起動**
+### 2. Window 2: Team Agents
+
+別のウィンドウを開く．
 
 ```bash
-# マルチエージェント確認 （別ターミナルウィンドウで）
+cd Agent-Team
+```
+
+```bash
 tmux attach-session -t multiagent
 ```
+
 ```bash
-# 認証完了後、multiagentセッションを一括起動
 for i in {0..3}; do tmux send-keys -t multiagent:0.$i 'claude --dangerously-skip-permissions' C-m; done
 ```
 
-**⚠️ 注意**: Claude Codeが起動したら、各エージェントはBashツールを使用してコマンドを実行します。直接コマンドを入力するのではなく、Claudeに指示を与えてBashツールでコマンドを実行させてください。
 
 ### 4. デモ実行
 
