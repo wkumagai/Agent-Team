@@ -1,6 +1,6 @@
 # Agent-Team
 
-tmux環境のPRESIDENT → BOSS → Workers の階層型指示システム
+PRESIDENT agent <-> BOSS agent <-> Worker agent 1,2,3  の階層型指示システム
 
 ### 👥 エージェント構成
 
