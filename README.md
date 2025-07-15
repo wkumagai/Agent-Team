@@ -57,6 +57,8 @@ tmux send-keys -t president 'claude --dangerously-skip-permissions' C-m
 for i in {0..3}; do tmux send-keys -t multiagent:0.$i 'claude --dangerously-skip-permissions' C-m; done
 ```
 
+**⚠️ 注意**: Claude Codeが起動したら、各エージェントはBashツールを使用してコマンドを実行します。直接コマンドを入力するのではなく、Claudeに指示を与えてBashツールでコマンドを実行させてください。
+
 ### 4. デモ実行
 
 PRESIDENTセッションで直接入力：
@@ -74,9 +76,13 @@ PRESIDENTセッションで直接入力：
 **Claude Code参照**: `CLAUDE.md` でシステム構造を確認
 
 **要点:**
-- **PRESIDENT**: 「あなたはpresidentです。指示書に従って」→ boss1に指示送信
-- **boss1**: PRESIDENT指示受信 → workers全員に指示 → 完了報告
+- **PRESIDENT**: 「あなたはpresidentです。指示書に従って」→ Bashツールでboss1に指示送信
+- **boss1**: PRESIDENT指示受信 → Bashツールでworkers全員に指示 → 完了報告
 - **workers**: Hello World実行 → 完了ファイル作成 → 最後の人が報告
+
+**⚠️ 重要な注意事項:**
+- 各エージェントはメッセージ送信時に必ずBashツールを使用してコマンドを実行する必要があります
+- 指示書に記載されているコマンドは、Claudeのインターフェースで直接実行するのではなく、Bashツールを通じて実行してください
 
 ## 🎬 期待される動作フロー
 
@@ -103,6 +109,8 @@ PRESIDENTセッションで直接入力：
 # エージェント一覧確認
 ./agent-send.sh --list
 ```
+
+**注意**: Claude Code内でメッセージを送信する場合は、Bashツールを使用して上記のコマンドを実行してください。
 
 ## 🧪 確認・デバッグ
 
@@ -143,6 +151,27 @@ rm -f ./tmp/worker*_done.txt
 # 再構築（自動クリア付き）
 ./setup.sh
 ```
+
+## 🐛 トラブルシューティング
+
+### PRESIDENTからBOSSにメッセージが送信されない場合
+
+1. **問題**: PRESIDENTが指示書に従ってもメッセージが送信されない
+   - **原因**: Claude CodeがBashツールを使用せずに直接コマンドを実行しようとしている
+   - **解決策**: 指示書が更新されていることを確認し、Claude Codeに「Bashツールを使用して」コマンドを実行するよう明示的に指示する
+
+2. **確認方法**:
+   ```bash
+   # 送信ログを確認
+   cat logs/send_log.txt | grep president
+   ```
+   PRESIDENTからの送信記録がない場合は、Bashツールが使用されていない
+
+3. **手動テスト**:
+   ```bash
+   # コマンドラインから直接テスト
+   ./agent-send.sh boss1 "テストメッセージ"
+   ```
 
 ---
 
