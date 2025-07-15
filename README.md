@@ -150,10 +150,3 @@ rm -f ./tmp/worker*_done.txt
 
 このプロジェクトは[MIT License](LICENSE)の下で公開されています。
 
-## 🤝 コントリビューション
-
-プルリクエストやIssueでのコントリビューションを歓迎いたします！
-
----
-
-🚀 **Agent Communication を体感してください！** 🤖✨ 
