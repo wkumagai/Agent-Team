@@ -2,8 +2,6 @@
 
 Agent同士がやり取りするtmux環境のデモシステム
 
-**📖 Read this in other languages:** [English](README-en.md)
-
 ## 🎯 デモ概要
 
 PRESIDENT → BOSS → Workers の階層型指示システムを体感できます
@@ -26,8 +24,8 @@ PRESIDENT → BOSS → Workers の階層型指示システムを体感できま�
 ### 0. リポジトリのクローン
 
 ```bash
-git clone https://github.com/nishimoto265/Claude-Code-Communication.git
-cd Claude-Code-Communication
+git clone https://https://github.com/wkumagai/Agent-Team/tree/main.git
+cd Agent-Team
 ```
 
 ### 1. tmux環境構築
