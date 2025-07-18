@@ -49,6 +49,19 @@ tmux attach-session -t multiagent
 **/Agent-Teamの部分で，パスを明示的に与えると起動が圧倒的に早くなります．
 
 
+
+### 3. 備忘録
+以下は無視してください
+```bash
+osascript <<'EOF'
+tell application "Terminal"
+  activate
+  do script "cd ~/dropbox/workspace/agent-team/team1 && ./setup.sh && tmux send-keys -t president 'claude --dangerously-skip-permissions' C-m && tmux attach-session -t president"
+  do script "cd ~/dropbox/workspace/agent-team/team1 && for i in {0..3}; do tmux send-keys -t multiagent:0.$i 'claude --dangerously-skip-permissions' C-m; done && tmux attach-session -t multiagent"
+end tell
+EOF
+```
+
 ### 4. デモ実行
 
 PRESIDENTセッションで直接入力：
