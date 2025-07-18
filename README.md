@@ -29,34 +29,24 @@ git clone https://github.com/wkumagai/Agent-Team.git
 
 Terminalウィンドウを開く．
 ```bash
-cd Agent-Team
-```
-```bash
-./setup.sh
-```
-```bash
+cd **/Agent-Team && \
+./setup.sh && \
+tmux send-keys -t president 'claude --dangerously-skip-permissions' C-m && \
 tmux attach-session -t president
 ```
-```bash
-tmux send-keys -t president 'claude --dangerously-skip-permissions' C-m
-```
 認証プロンプトに従って許可を与えてください。
+**/Agent-Teamの部分で，パスを明示的に与えると起動が圧倒的に早くなります．
 
 ### 2. Window 2: Team Agents
 
 別のTerminalウィンドウを開く．
-
 ```bash
-cd Agent-Team
-```
-
-```bash
+cd **/Agent-Team && \
+for i in {0..3}; do tmux send-keys -t multiagent:0.$i 'claude --dangerously-skip-permissions' C-m; done
+ && \
 tmux attach-session -t multiagent
 ```
-
-```bash
-for i in {0..3}; do tmux send-keys -t multiagent:0.$i 'claude --dangerously-skip-permissions' C-m; done
-```
+**/Agent-Teamの部分で，パスを明示的に与えると起動が圧倒的に早くなります．
 
 
 ### 4. デモ実行
