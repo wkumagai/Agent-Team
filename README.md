@@ -42,8 +42,7 @@ tmux attach-session -t president
 別のTerminalウィンドウを開く．
 ```bash
 cd **/Agent-Team && \
-for i in {0..3}; do tmux send-keys -t multiagent:0.$i 'claude --dangerously-skip-permissions' C-m; done
- && \
+for i in {0..3}; do tmux send-keys -t multiagent:0.$i 'claude --dangerously-skip-permissions' C-m; done && \
 tmux attach-session -t multiagent
 ```
 **/Agent-Teamの部分で，パスを明示的に与えると起動が圧倒的に早くなります．
