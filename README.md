@@ -50,7 +50,9 @@ tmux attach-session -t multiagent
 
 
 ### 3. 備忘録
-以下は無視してください
+agent-teamディレクトリで./launch-all.sh
+
+以下は無視してください: 
 ```bash
 osascript <<'EOF'
 tell application "Terminal"
