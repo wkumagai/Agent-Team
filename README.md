@@ -49,7 +49,7 @@ tmux attach-session -t multiagent
 
 
 
-### 3. 備忘録
+### 備忘録
 agent-teamディレクトリで./launch-all.sh
 
 以下は無視してください: 
@@ -63,7 +63,7 @@ end tell
 EOF
 ```
 
-### 4. デモ実行
+### デモ実行
 
 PRESIDENTセッションで直接入力：
 ```
